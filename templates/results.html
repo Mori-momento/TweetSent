@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Results</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 2em; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #0056b3; text-align: center; margin-bottom: 1em; }
+        .results-summary { margin-bottom: 1.5em; padding: 1em; background-color: #e9ecef; border-radius: 4px; }
+        .results-summary p { margin: 0.5em 0; }
+        .results-summary strong { color: #0056b3; }
+        .sentiment-distribution { list-style: none; padding: 0; }
+        .sentiment-distribution li { margin-bottom: 0.5em; font-size: 1.1em; }
+        .sentiment-distribution .positive { color: #28a745; } /* Green */
+        .sentiment-distribution .negative { color: #dc3545; } /* Red */
+        .sentiment-distribution .neutral { color: #6c757d; } /* Gray */
+        .back-link { display: block; text-align: center; margin-top: 2em; }
+        .back-link a { color: #0056b3; text-decoration: none; font-weight: bold; padding: 10px 15px; border: 1px solid #0056b3; border-radius: 4px; transition: background-color 0.3s ease, color 0.3s ease; }
+        .back-link a:hover { background-color: #0056b3; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis Results</h1>
+
+        <div class="results-summary">
+            <p>Analysis for Hashtag: <strong>{{ results.hashtag }}</strong></p>
+            <p>Total Tweets Analyzed: <strong>{{ results.total_analyzed }}</strong></p>
+        </div>
+
+        <h2>Sentiment Distribution:</h2>
+        <ul class="sentiment-distribution">
+            <li class="positive">Positive: {{ results.positive_pct }}%</li>
+            <li class="negative">Negative: {{ results.negative_pct }}%</li>
+            <li class="neutral">Neutral: {{ results.neutral_pct }}%</li>
+        </ul>
+
+        <div class="back-link">
+            <a href="{{ url_for('index') }}">Analyze Another Hashtag</a>
+        </div>
+    </div>
+</body>
+</html>
